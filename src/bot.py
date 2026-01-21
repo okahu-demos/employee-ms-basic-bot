@@ -89,7 +89,7 @@ class AgentFrameworkBot:
                 instructions = self._get_instructions(message_text)
                 
                 # Create new agent with Assistants API
-                agent = self.assistants_client.create_agent(
+                agent = self.assistants_client.as_agent(
                     name="Employee_HR_Bot",
                     instructions=instructions,
                 )
