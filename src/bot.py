@@ -103,17 +103,6 @@ class AgentFrameworkBot:
                 }
                 print(f" [on_message] Agent created successfully")
             
-            
-            # Add output data to span
-            if current_span:
-                current_span.add_event(
-                    "bot.message.sent",
-                    attributes={
-                        "response.text": response_text,
-                        "conversation.id": conversation_id,
-                    }
-                )
-            
             # Get the existing agent and thread
             conv_data = self.conversation_agents[conversation_id]
             agent = conv_data['agent']
@@ -125,6 +114,16 @@ class AgentFrameworkBot:
             response_text = response.text if hasattr(response, 'text') else str(response)
             
             print(f" [on_message] Agent response: '{response_text}'")
+            
+            # Add output data to span
+            if current_span:
+                current_span.add_event(
+                    "bot.message.sent",
+                    attributes={
+                        "response.text": response_text,
+                        "conversation.id": conversation_id,
+                    }
+                )
             # Send response back to Teams
             await turn_context.send_activity(response_text)
             print(f" [on_message] Response sent successfully")
