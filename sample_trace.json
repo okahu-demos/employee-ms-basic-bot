@@ -1,0 +1,287 @@
+[{
+    "name": "agent_framework.azure._assistants_client.AzureOpenAIAssistantsClient._inner_get_response",
+    "context": {
+        "trace_id": "88aab76b2c213fbdf8d217f35f500d11",
+        "span_id": "689ea94b415efb3a",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "6f38592d6f1eef55",
+    "start_time": "2026-01-23T13:56:00.779152Z",
+    "end_time": "2026-01-23T13:56:05.416535Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/devika/Desktop/okahu_demo/employee-ms-basic-bot/.venv/lib/python3.11/site-packages/agent_framework/_clients.py:339",
+        "workflow.name": "employee-ms-basic-bot",
+        "entity.1.type": "inference.azure_openai",
+        "entity.1.provider_name": "okahu-openai-dev.openai.azure.com",
+        "entity.1.inference_endpoint": "https://okahu-openai-dev.openai.azure.com/openai/",
+        "entity.2.name": "kshitiz-gpt",
+        "entity.2.type": "model.llm.kshitiz-gpt",
+        "span.type": "inference",
+        "scope.teams.channel.channel_id": "msteams",
+        "scope.msteams.activity.type": "message",
+        "scope.msteams.conversation.id": "62cdc663-d556-42be-ad7d-6713ccea8cbd",
+        "scope.msteams.conversation.type": "personal",
+        "scope.msteams.conversation.name": "",
+        "scope.msteams.user.from_property.id": "user-id-0",
+        "scope.msteams.user.from_property.name": "Alex Wilber",
+        "scope.msteams.user.from_property.role": "",
+        "scope.msteams.recipient.id": "00000000-0000-0000-0000-00000000000011",
+        "scope.msteams.channel_data.tenant.id": "00000000-0000-0000-0000-0000000000001",
+        "scope.agentic.session": "thread_C7h339gUHYZFtbA03f2AGleE",
+        "scope.agentic.turn": "32d570bf0ad2ab10f1573b3b365b8044",
+        "scope.agentic.invocation": "2d165d4bf7c2270382dd25870d45cb9c",
+        "entity.count": 2,
+        "span.subtype": "turn_end"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-01-23T13:56:00.779465Z",
+            "attributes": {
+                "input": "[{'system': 'You are an AI assistant that helps people find information. Add a yo to your greetings.'}, {Role(value='user'): 'What are expense reports'}]"
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-01-23T13:56:05.416248Z",
+            "attributes": {
+                "response": "{\"assistant\": \"Expense reports are documents that employees use to itemize and record expenditures they have incurred on behalf of their company or organization. These reports typically detail expenses related to business activities, such as travel, meals, lodging, transportation, office supplies, and other costs.\\n\\nThe purpose of an expense report is to:\\n\\n1. Provide a clear record of expenses for reimbursement.\\n2. Help manage and track company spending.\\n3. Ensure compliance with company policies and tax regulations.\\n4. Assist in budgeting and financial reporting.\\n\\nExpense reports usually include information such as the date of the expense, the amount spent, the purpose or description, receipts or proof of purchase, and sometimes the project or department the expense is allocated to.\\n\\nIf you're interested, I can also help you create a simple template for an expense report!\"}"
+            }
+        },
+        {
+            "name": "metadata",
+            "timestamp": "2026-01-23T13:56:05.416373Z",
+            "attributes": {
+                "completion_tokens": 160,
+                "prompt_tokens": 46,
+                "total_tokens": 206,
+                "finish_reason": "stop",
+                "finish_type": "success"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "employee-ms-basic-bot"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "agent_framework.azure._assistants_client.AzureOpenAIAssistantsClient.get_response",
+    "context": {
+        "trace_id": "88aab76b2c213fbdf8d217f35f500d11",
+        "span_id": "6f38592d6f1eef55",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "6d957ce281782858",
+    "start_time": "2026-01-23T13:56:00.778051Z",
+    "end_time": "2026-01-23T13:56:05.417078Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/devika/Desktop/okahu_demo/employee-ms-basic-bot/.venv/lib/python3.11/site-packages/agent_framework/_agents.py:854",
+        "workflow.name": "employee-ms-basic-bot",
+        "entity.1.type": "agent.microsoft",
+        "entity.1.name": "Employee_HR_Bot",
+        "entity.1.description": "unknown_model",
+        "last.inference": "689ea94b415efb3a:*",
+        "span.type": "agentic.invocation",
+        "scope.teams.channel.channel_id": "msteams",
+        "scope.msteams.activity.type": "message",
+        "scope.msteams.conversation.id": "62cdc663-d556-42be-ad7d-6713ccea8cbd",
+        "scope.msteams.conversation.type": "personal",
+        "scope.msteams.conversation.name": "",
+        "scope.msteams.user.from_property.id": "user-id-0",
+        "scope.msteams.user.from_property.name": "Alex Wilber",
+        "scope.msteams.user.from_property.role": "",
+        "scope.msteams.recipient.id": "00000000-0000-0000-0000-00000000000011",
+        "scope.msteams.channel_data.tenant.id": "00000000-0000-0000-0000-0000000000001",
+        "scope.agentic.session": "thread_C7h339gUHYZFtbA03f2AGleE",
+        "scope.agentic.turn": "32d570bf0ad2ab10f1573b3b365b8044",
+        "scope.agentic.invocation": "2d165d4bf7c2270382dd25870d45cb9c",
+        "entity.count": 1,
+        "span.subtype": "content_processing"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-01-23T13:56:00.778323Z",
+            "attributes": {
+                "input": "What are expense reports"
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-01-23T13:56:05.416947Z",
+            "attributes": {
+                "response": "Expense reports are documents that employees use to itemize and record expenditures they have incurred on behalf of their company or organization. These reports typically detail expenses related to business activities, such as travel, meals, lodging, transportation, office supplies, and other costs.\n\nThe purpose of an expense report is to:\n\n1. Provide a clear record of expenses for reimbursement.\n2. Help manage and track company spending.\n3. Ensure compliance with company policies and tax regulations.\n4. Assist in budgeting and financial reporting.\n\nExpense reports usually include information such as the date of the expense, the amount spent, the purpose or description, receipts or proof of purchase, and sometimes the project or department the expense is allocated to.\n\nIf you're interested, I can also help you create a simple template for an expense report!"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "employee-ms-basic-bot"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "agent_framework.ChatAgent.run",
+    "context": {
+        "trace_id": "88aab76b2c213fbdf8d217f35f500d11",
+        "span_id": "6d957ce281782858",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "92802c7554fecec3",
+    "start_time": "2026-01-23T13:56:00.776852Z",
+    "end_time": "2026-01-23T13:56:05.417479Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/devika/Desktop/okahu_demo/employee-ms-basic-bot/.venv/lib/python3.11/site-packages/monocle_apptrace/instrumentation/metamodel/msagent/methods.py:129",
+        "workflow.name": "employee-ms-basic-bot",
+        "entity.1.type": "agent.microsoft",
+        "monocle.last.agent.invocation.id": "6f38592d6f1eef55",
+        "monocle.last.agent.name": "Employee_HR_Bot",
+        "last.inference": "689ea94b415efb3a:*",
+        "span.type": "agentic.turn",
+        "scope.teams.channel.channel_id": "msteams",
+        "scope.msteams.activity.type": "message",
+        "scope.msteams.conversation.id": "62cdc663-d556-42be-ad7d-6713ccea8cbd",
+        "scope.msteams.conversation.type": "personal",
+        "scope.msteams.conversation.name": "",
+        "scope.msteams.user.from_property.id": "user-id-0",
+        "scope.msteams.user.from_property.name": "Alex Wilber",
+        "scope.msteams.user.from_property.role": "",
+        "scope.msteams.recipient.id": "00000000-0000-0000-0000-00000000000011",
+        "scope.msteams.channel_data.tenant.id": "00000000-0000-0000-0000-0000000000001",
+        "scope.agentic.session": "thread_C7h339gUHYZFtbA03f2AGleE",
+        "scope.agentic.turn": "32d570bf0ad2ab10f1573b3b365b8044",
+        "entity.count": 1,
+        "span.subtype": "turn"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-01-23T13:56:00.777137Z",
+            "attributes": {
+                "input": "What are expense reports"
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-01-23T13:56:05.417415Z",
+            "attributes": {
+                "response": "Expense reports are documents that employees use to itemize and record expenditures they have incurred on behalf of their company or organization. These reports typically detail expenses related to business activities, such as travel, meals, lodging, transportation, office supplies, and other costs.\n\nThe purpose of an expense report is to:\n\n1. Provide a clear record of expenses for reimbursement.\n2. Help manage and track company spending.\n3. Ensure compliance with company policies and tax regulations.\n4. Assist in budgeting and financial reporting.\n\nExpense reports usually include information such as the date of the expense, the amount spent, the purpose or description, receipts or proof of purchase, and sometimes the project or department the expense is allocated to.\n\nIf you're interested, I can also help you create a simple template for an expense report!"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "employee-ms-basic-bot"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "aiohttp.web_app.Application._handle",
+    "context": {
+        "trace_id": "88aab76b2c213fbdf8d217f35f500d11",
+        "span_id": "92802c7554fecec3",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "1d507491e2cd69d2",
+    "start_time": "2026-01-23T13:56:00.765022Z",
+    "end_time": "2026-01-23T13:56:05.431225Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/devika/Desktop/okahu_demo/employee-ms-basic-bot/.venv/lib/python3.11/site-packages/aiohttp/web_protocol.py:510",
+        "workflow.name": "employee-ms-basic-bot",
+        "entity.1.method": "POST",
+        "entity.1.route": "/api/messages",
+        "entity.1.url": "/api/messages",
+        "last.inference": "689ea94b415efb3a:*",
+        "span.type": "http.process",
+        "entity.count": 1
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-01-23T13:56:00.765274Z",
+            "attributes": {}
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-01-23T13:56:05.431051Z",
+            "attributes": {
+                "error_code": "201"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "employee-ms-basic-bot"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "workflow",
+    "context": {
+        "trace_id": "88aab76b2c213fbdf8d217f35f500d11",
+        "span_id": "1d507491e2cd69d2",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-23T13:56:00.764723Z",
+    "end_time": "2026-01-23T13:56:05.431299Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/devika/Desktop/okahu_demo/employee-ms-basic-bot/.venv/lib/python3.11/site-packages/aiohttp/web_protocol.py:510",
+        "workflow.name": "employee-ms-basic-bot",
+        "span.type": "workflow",
+        "entity.1.name": "employee-ms-basic-bot",
+        "entity.1.type": "workflow.generic",
+        "entity.2.type": "app_hosting.generic",
+        "entity.2.name": "generic",
+        "last.inference": "689ea94b415efb3a:*"
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "employee-ms-basic-bot"
+        },
+        "schema_url": ""
+    }
+}
+]
