@@ -110,7 +110,7 @@ class AgentFrameworkBot:
             
             print(f" [on_message] Running agent...")
             # Get response from agent using Assistants API
-            response = await agent.run(message_text, thread=thread)
+            response = await agent.run(message_text, thread=thread, context=turn_context)
             response_text = response.text if hasattr(response, 'text') else str(response)
             
             print(f" [on_message] Agent response: '{response_text}'")

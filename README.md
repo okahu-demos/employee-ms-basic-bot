@@ -43,6 +43,8 @@ OKAHU_INGESTION_ENDPOINT=
 1. Press F5 to start debugging which launches your app in Teams using a web browser. Select `Debug in Microsoft 365 Agent Playground`.
 1. You will receive a welcome message from the agent, or send any message to get a response.
 
+<img src="images/playground.png" alt="Agent Chat in Microsoft 365 Agents Playground">
+
 #### Manual (CLI) option
 If you prefer to run everything manually from the terminal:
 
@@ -81,6 +83,22 @@ Notes
 - If the port is busy, change `Config.PORT` or pass a different `-e` URL.
 
 ### Observability of agent 
+
+#### Using Okahu VS Code Extension
+View traces directly in VS Code using the Okahu extension:
+
+1. Open the Okahu extension panel in VS Code
+2. Monitor trace events in real-time as you interact with the agent:
+
+<img src="images/events.png" alt="Trace Events in Okahu VS Code Extension">
+
+3. View detailed trace attributes including model calls, token usage, and response times:
+
+<img src="images/attributes.png" alt="Trace Attributes in Okahu VS Code Extension">
+
+#### Using Okahu Cloud Portal
+For centralized monitoring and team collaboration:
+
 1. Open Okahu Cloud Portal (http://portal.okahu.co) and click `Discover` under Applications > Components tab. 
 2. Visualize traces from the `Traces` tab to monitor agent interactions and performance. 
 3. Add a new application from `Applications` navigation to view insights. 
