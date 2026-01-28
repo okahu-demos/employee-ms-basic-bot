@@ -1,7 +1,0 @@
-python-dotenv
-aiohttp
-monocle_apptrace
-agent-framework-azure-ai
-botbuilder-core
-botbuilder-schema
-botbuilder-integration-aiohttp
