@@ -1,0 +1,66 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.24/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.24",
+    "version": "1.0.1",
+    "id": "${{TEAMS_APP_ID}}",
+    "developer": {
+        "name": "Okahu, Inc.",
+        "websiteUrl": "https://okahu.ai",
+        "privacyUrl": "https://www.okahu.ai/agreements/privacy-policy",
+        "termsOfUseUrl": "https://www.okahu.ai/agreements/evaluation-agreement"
+    },
+    "icons": {
+        "color": "color.png",
+        "outline": "outline.png"
+    },
+    "name": {
+        "short": "employee-ms-basic-bot${{APP_NAME_SUFFIX}}",
+        "full": "Okahu Employee Q&A bot"
+    },
+    "description": {
+        "short": "Bot to answers employee's questions",
+        "full": "An M365 agent that answers employees questions about HR policies."
+    },
+    "accentColor": "#FFFFFF",
+    "bots": [
+        {
+            "botId": "${{BOT_ID}}",
+            "scopes": [
+                "team",
+                "groupChat",
+                "personal"
+            ],
+            "supportsFiles": false,
+            "isNotificationOnly": false,
+            "commandLists": [
+                {
+                    "scopes": [
+                        "personal"
+                    ],
+                    "commands": [
+                        {
+                            "title": "What can you help me with?",
+                            "description": "Learn about the assistant's capabilities and how it can help you"
+                        },
+                        {
+                            "title": "Get HR information",
+                            "description": "Ask questions about company policies, benefits, and HR matters"
+                        },
+                        {
+                            "title": "Get IT support",
+                            "description": "Get help with technical issues and IT-related questions"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "composeExtensions": [],
+    "configurableTabs": [],
+    "staticTabs": [],
+    "permissions": [
+        "identity",
+        "messageTeamMembers"
+    ],
+    "validDomains": []
+}
