@@ -1,0 +1,19 @@
+{
+  "servers": {
+    "m365agentstoolkit": {
+      "command": "npx",
+      "args": [
+        "@microsoft/m365agentstoolkit-mcp@latest",
+        "server",
+        "start"
+      ]
+    },
+    "okahu-mcp-stage": {
+            "url": "https://mcp.okahu.co/mcp",
+            "type": "http",
+            "headers": {
+                "x-api-key": "<OKAHU_API_KEY>"
+            }
+        },
+  }
+}
