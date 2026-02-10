@@ -7,7 +7,7 @@ load_dotenv()
 class Config:
     """Bot Configuration"""
 
-    PORT = 3978
+    PORT = int(os.environ.get("PORT", 3978))  # Use Azure's PORT or default to 3978 for local
     APP_ID = os.environ.get("CLIENT_ID", "")
     APP_PASSWORD = os.environ.get("CLIENT_SECRET", "")
     APP_TYPE = os.environ.get("BOT_TYPE", "")

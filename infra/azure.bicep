@@ -9,6 +9,10 @@ param azureOpenaiKey string
 param azureOpenaiModelDeploymentName string
 param azureOpenaiEndpoint string
 
+@secure()
+param okahuApiKey string
+param okahuIngestionEndpoint string
+
 param webAppSKU string
 param linuxFxVersion string
 
@@ -48,7 +52,7 @@ resource webApp 'Microsoft.Web/sites@2021-02-01' = {
     serverFarmId: serverfarm.id
     siteConfig: {
       alwaysOn: true
-      appCommandLine: 'python app.py'
+      appCommandLine: 'python src/app.py'
       linuxFxVersion: pythonVersion
       appSettings: [
         {
@@ -58,6 +62,14 @@ resource webApp 'Microsoft.Web/sites@2021-02-01' = {
         {
           name: 'SCM_DO_BUILD_DURING_DEPLOYMENT'
           value: 'true'
+        }
+        {
+          name: 'WEBSITES_PORT'
+          value: '8000'
+        }
+        {
+          name: 'PORT'
+          value: '8000'
         }
         {
           name: 'CLIENT_ID'
@@ -79,9 +91,25 @@ resource webApp 'Microsoft.Web/sites@2021-02-01' = {
           name: 'TENANT_ID'
           value: identity.properties.tenantId
         }
+        {
+          name: 'BOT_ID'
+          value: identity.properties.clientId
+        }
+        {
+          name: 'BOT_TENANT_ID'
+          value: identity.properties.tenantId
+        }
         { 
           name: 'BOT_TYPE'
           value: 'UserAssignedMsi' 
+        }
+        {
+          name: 'OKAHU_API_KEY'
+          value: okahuApiKey
+        }
+        {
+          name: 'OKAHU_INGESTION_ENDPOINT'
+          value: okahuIngestionEndpoint
         }
       ]
       ftpsState: 'FtpsOnly'

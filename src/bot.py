@@ -23,10 +23,13 @@ class AgentFrameworkBot:
     
     def __init__(self):
         # Initialize Cloud Adapter with Bot Framework credentials
+        # For Managed Identity: pass None for password and set identity properties
         settings = BotFrameworkAdapterSettings(
             app_id=config.APP_ID,
-            app_password=config.APP_PASSWORD
+            app_password=None
         )
+        settings.app_type = config.APP_TYPE
+        settings.app_tenantid = config.APP_TENANTID
         auth_config = ConfigurationBotFrameworkAuthentication(settings)
         self.adapter = CloudAdapter(auth_config)
         
