@@ -7,6 +7,7 @@ pydantic-settings>=2.0.0
 botbuilder-core
 botbuilder-schema
 botbuilder-integration-aiohttp
+agent-framework-core==1.0.0b260130
 agent-framework-azure-ai
 aiohttp
 monocle_apptrace
