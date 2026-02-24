@@ -5,9 +5,10 @@ import sys
 import traceback
 import json
 from typing import Optional
-from botbuilder.core import TurnContext, BotFrameworkAdapterSettings
+from botbuilder.core import TurnContext
 from botbuilder.schema import Activity, ActivityTypes
 from botbuilder.integration.aiohttp import CloudAdapter, ConfigurationBotFrameworkAuthentication
+from botframework.connector.auth import ManagedIdentityServiceClientCredentialsFactory
 from agent_framework import ChatAgent
 from agent_framework.azure import AzureOpenAIAssistantsClient
 from aiohttp.web import Request, Response
@@ -22,12 +23,26 @@ class AgentFrameworkBot:
     """Teams Bot using Microsoft Agent Framework with Assistants API"""
     
     def __init__(self):
-        # Initialize Cloud Adapter with Bot Framework credentials
-        settings = BotFrameworkAdapterSettings(
-            app_id=config.APP_ID,
-            app_password=config.APP_PASSWORD
+        # Debug: Print configuration
+        print(f"\n=== Bot Configuration ===")
+        print(f"APP_ID: {config.APP_ID}")
+        print(f"APP_TYPE: {config.APP_TYPE}")
+        print(f"APP_TENANTID: {config.APP_TENANTID}")
+        print(f"========================\n")
+        
+        # Configure CloudAdapter for User-Assigned Managed Identity
+        # Use the ManagedIdentityServiceClientCredentialsFactory for MSI authentication
+        credential_factory = ManagedIdentityServiceClientCredentialsFactory(
+            app_id=config.APP_ID
         )
-        auth_config = ConfigurationBotFrameworkAuthentication(settings)
+        
+        # Create authentication config with the MSI credential factory
+        auth_config = ConfigurationBotFrameworkAuthentication(
+            configuration=None,
+            credentials_factory=credential_factory
+        )
+        
+        # Initialize CloudAdapter with MSI-aware authentication
         self.adapter = CloudAdapter(auth_config)
         
         # Initialize Azure OpenAI Assistants Client
@@ -66,17 +81,19 @@ class AgentFrameworkBot:
         """Handle incoming message activities"""
         try:
             message_text = turn_context.activity.text
-            conversation_id = turn_context.activity.conversation.id
+            conversation_id = turn_context.activity.conversation.id if turn_context.activity.conversation else "unknown"
             # Get current span and add input data
             current_span = trace.get_current_span()
             if current_span:
+                user_id = turn_context.activity.from_property.id if turn_context.activity.from_property else "unknown"
+                user_name = turn_context.activity.from_property.name if turn_context.activity.from_property else "unknown"
                 current_span.add_event(
                     "bot.message.received",
                     attributes={
                         "message.text": message_text,
                         "conversation.id": conversation_id,
-                        "user.id": turn_context.activity.from_property.id,
-                        "user.name": turn_context.activity.from_property.name,
+                        "user.id": user_id,
+                        "user.name": user_name,
                     }
                 )
             

@@ -9,6 +9,10 @@ param azureOpenaiKey string
 param azureOpenaiModelDeploymentName string
 param azureOpenaiEndpoint string
 
+@secure()
+param okahuApiKey string
+param okahuIngestionEndpoint string
+
 param webAppSKU string
 param linuxFxVersion string
 
@@ -48,12 +52,12 @@ resource webApp 'Microsoft.Web/sites@2021-02-01' = {
     serverFarmId: serverfarm.id
     siteConfig: {
       alwaysOn: true
-      appCommandLine: 'python app.py'
+      appCommandLine: 'gunicorn --bind 0.0.0.0 --worker-class aiohttp.worker.GunicornWebWorker --timeout 600 app:app'
       linuxFxVersion: pythonVersion
       appSettings: [
         {
           name: 'WEBSITES_CONTAINER_START_TIME_LIMIT'
-          value: '900'
+          value: '600'
         }
         {
           name: 'SCM_DO_BUILD_DURING_DEPLOYMENT'
@@ -79,9 +83,25 @@ resource webApp 'Microsoft.Web/sites@2021-02-01' = {
           name: 'TENANT_ID'
           value: identity.properties.tenantId
         }
+        {
+          name: 'BOT_ID'
+          value: identity.properties.clientId
+        }
+        {
+          name: 'BOT_TENANT_ID'
+          value: identity.properties.tenantId
+        }
         { 
           name: 'BOT_TYPE'
           value: 'UserAssignedMsi' 
+        }
+        {
+          name: 'OKAHU_API_KEY'
+          value: okahuApiKey
+        }
+        {
+          name: 'OKAHU_INGESTION_ENDPOINT'
+          value: okahuIngestionEndpoint
         }
       ]
       ftpsState: 'FtpsOnly'

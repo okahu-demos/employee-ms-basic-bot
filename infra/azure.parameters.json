@@ -14,6 +14,12 @@
     "azureOpenaiEndpoint" : {
       "value": "${{AZURE_OPENAI_ENDPOINT}}"
     },
+    "okahuApiKey": {
+      "value": "${{OKAHU_API_KEY}}"
+    },
+    "okahuIngestionEndpoint": {
+      "value": "${{OKAHU_INGESTION_ENDPOINT}}"
+    },
     "webAppSKU": {
       "value": "B3"
     },
