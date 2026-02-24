@@ -3,8 +3,10 @@ dotenv>=0.9.9
 pydantic-settings>=2.0.0
 botbuilder-core
 botbuilder-schema
+opentelemetry-semantic-conventions==0.60b1
+opentelemetry-semantic-conventions-ai==0.4.13
 botbuilder-integration-aiohttp
 agent-framework-azure-ai==1.0.0b260130
 agent-framework-core==1.0.0b260130
 aiohttp
-monocle_apptrace
+monocle_apptrace==0.7.5
