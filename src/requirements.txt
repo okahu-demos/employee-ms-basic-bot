@@ -9,4 +9,4 @@ botbuilder-integration-aiohttp
 agent-framework-azure-ai==1.0.0b260130
 agent-framework-core==1.0.0b260130
 aiohttp
-monocle_apptrace==0.7.7
+monocle_apptrace==0.7.8
